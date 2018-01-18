@@ -11,4 +11,8 @@ export class HomePage {
 
   }
 
+  goToPage(){
+    this.navCtrl.push('Page1Page');
+  }
+
 }
