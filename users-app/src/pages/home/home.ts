@@ -7,18 +7,8 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(
-    public navCtrl: NavController
-  ) {
+  constructor(public navCtrl: NavController) {
 
-  }
-
-  goToAlertsPage() {
-    this.navCtrl.push('AlertsPage');
-  }
-
-  goToTabsPage() {
-    this.navCtrl.push('TabsPage');
   }
 
 }

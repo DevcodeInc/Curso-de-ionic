@@ -23,8 +23,8 @@ export class HomePage {
 
   private buildForm() {
     this.registerForm = this.formBuilder.group({
-      name: '',
-      lastname: '',
+      name: ['', Validators.required],
+      lastname: ['', [Validators.maxLength(6), Validators.minLength(2)]],
       check: false,
       gender: '',
       date: '',
