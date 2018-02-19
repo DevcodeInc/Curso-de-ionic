@@ -7,8 +7,76 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <form [formGroup]="registerForm" (ngSubmit)="doSave()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>name</ion-label>
+        <ion-input formControlName="name" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>lastname</ion-label>
+        <ion-input formControlName="lastname" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>¿Acepto?</ion-label>
+        <ion-checkbox color="royal" formControlName="check"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Date</ion-label>
+        <ion-datetime cancelText="cerrar" displayFormat="hh: mm A" formControlName="date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>
+          Peso <ion-badge>{{ registerForm.value.peso }}</ion-badge>
+        </ion-label>
+      </ion-item>
+      <ion-item>
+       <ion-range pin="true" step="2" color="royal" formControlName="peso" max="10" min="-10">
+          <ion-icon small range-left name="man"></ion-icon>
+          <ion-icon range-right name="man"></ion-icon>
+       </ion-range>
+      </ion-item>
+      <ion-item>
+        <ion-label> Notifications</ion-label>
+        <ion-toggle formControlName="notifications"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Banda</ion-label>
+        <ion-select formControlName="banda" interface="alert">
+          <ion-option value="los prisioneros">Los prisioneros</ion-option>
+          <ion-option value="nirvana">Nirvana</ion-option>
+          <ion-option value="linkin">Linkin ...</ion-option>
+          <ion-option value="cafe">Cafe tacuba</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Banda</ion-label>
+        <ion-select formControlName="bandas" multiple="true">
+          <ion-option value="los prisioneros">Los prisioneros</ion-option>
+          <ion-option value="nirvana">Nirvana</ion-option>
+          <ion-option value="linkin">Linkin ...</ion-option>
+          <ion-option value="cafe">Cafe tacuba</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <ion-list radio-group formControlName="gender">
+      <ion-item>
+        <ion-label>Masculino</ion-label>
+        <ion-radio value="M"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Femenino</ion-label>
+        <ion-radio value="F"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>No se</ion-label>
+        <ion-radio value="N"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <div class="padding">
+      <button ion-button block type="submit">
+        Send
+      </button>
+    </div>
+  </form>
 </ion-content>
