@@ -7,6 +7,11 @@
 </ion-header>
 
 <ion-content>
+  <div padding>
+    <button ion-button (click)="goToTasksPage()">
+      Ir al tareas
+    </button>
+  </div>
   <ion-list>
     <ion-item *ngFor="let user of users">
       <ion-avatar item-start>

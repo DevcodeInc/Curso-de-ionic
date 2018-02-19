@@ -32,4 +32,8 @@ export class HomePage {
 
   }
 
+  goToTasksPage(){
+    this.navCtrl.push('TasksPage');
+  }
+
 }
