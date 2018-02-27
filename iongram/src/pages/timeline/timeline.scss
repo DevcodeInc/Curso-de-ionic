@@ -1,3 +1,9 @@
 page-timeline {
-
+  ion-card{
+    &.card-md,
+    &.card-ios{
+      margin: 5px 0px;
+      width: 100%;
+    }
+  }
 }

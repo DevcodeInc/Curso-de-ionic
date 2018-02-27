@@ -1,0 +1,32 @@
+[
+  {
+    "image": "./assets/imgs/img1.jpg",
+    "text": "Hola, esta",
+    "location": "Mi casa",
+    "favorite": true,
+    "user": {
+      "name": "Nicolas",
+      "image": "./assets/imgs/nicobytes.jpg"
+    }
+  },
+  {
+    "image": "./assets/imgs/img2.jpg",
+    "text": "Hola, esta",
+    "location": "Mi casa",
+    "favorite": false,
+    "user": {
+      "name": "Adam",
+      "image": "./assets/imgs/adam.jpg"
+    }
+  },
+  {
+    "image": "./assets/imgs/img3.jpg",
+    "text": "Hola, esta",
+    "location": "Mi casa",
+    "favorite": false,
+    "user": {
+      "name": "Ben",
+      "image": "./assets/imgs/ben.png"
+    }
+  }
+]

@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
 
-/**
- * Generated class for the TimelinePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { TimelineProvider } from './../../providers/timeline/timeline';
+import { Post } from './../../models/post.model';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,55 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TimelinePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  posts: Post[] = [];
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private timeline: TimelineProvider,
+    private actionSheetCtrl: ActionSheetController
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TimelinePage');
+    this.timeline.getPosts()
+    .subscribe(data => {
+      console.log(data, 'posts');
+      this.posts = data;
+    });
+  }
+
+  doFavorite(post: Post){
+    post.favorite = !post.favorite;
+  }
+
+  showOptions(post: Post) {
+    const action = this.actionSheetCtrl.create({
+      title: 'Options post',
+      buttons: [
+        {
+          text: 'Destructive',
+          role: 'destructive',
+          handler: () => {
+            console.log('Destructive clicked');
+          }
+        },
+        {
+          text: 'Share',
+          handler: () => {
+            console.log('share');
+          }
+        },
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }
+      ]
+    });
+    action.present( action );
   }
 
 }
