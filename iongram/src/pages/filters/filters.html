@@ -1,18 +1,26 @@
-<!--
-  Generated template for the FiltersPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>filters</ion-title>
+    <ion-title>Filters</ion-title>
+     <ion-buttons end>
+      <button ion-button clean (click)="savePhoto()">Save</button>
+    </ion-buttons>
   </ion-navbar>
-
 </ion-header>
 
-
-<ion-content padding>
-
+<ion-content>
+  <figure class="photo cover" [ngClass]="filterSelected.class">
+    <img *ngIf="photo" [src]="photo.image" />
+  </figure>
+  <ion-scroll scrollX="true" class="scroll">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-4 *ngFor="let filter of filters" (click)="changeFilterSelected( filter )">
+          <figure class="photo" [ngClass]="filter.class">
+            <img *ngIf="photo" [src]="photo.image" />
+          </figure>
+          <p text-center>{{ filter.name }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-scroll>
 </ion-content>

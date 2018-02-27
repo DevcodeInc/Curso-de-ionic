@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController } from 'ionic-angular';
 
-/**
- * Generated class for the TabsPage tabs.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -21,6 +15,14 @@ export class TabsPage {
   profileRoot = 'ProfilePage'
 
 
-  constructor(public navCtrl: NavController) {}
+  constructor(
+    public navCtrl: NavController,
+    private modalCtrl: ModalController
+  ) {}
+
+  showModal() {
+    const modal = this.modalCtrl.create('GalleryPage');
+    modal.present();
+  }
 
 }
